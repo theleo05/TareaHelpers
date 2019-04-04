@@ -1,0 +1,87 @@
+﻿@model PruebaHelp.Models.Datos
+@using PruebaHelp.Models
+
+@{
+    ViewBag.Title = "Form";
+
+    var lstValores = new List<SelectListItem>();
+    for (int i = 0; i < 100; i++)
+    {
+        lstValores.Add(new SelectListItem() { Value = i.ToString(), Text = i.ToString() });
+    }
+}
+
+<h2>Form</h2>
+
+@using (Html.BeginForm("Form", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <br />
+    @Html.LabelFor(m => m.cedula)
+    @Html.TextBoxFor(m => m.cedula)
+    @Html.ValidationMessageFor(m => m.cedula)
+
+
+    <br />
+    @Html.LabelFor(m => m.nombre)
+    @Html.TextBoxFor(m => m.nombre)
+    @Html.ValidationMessageFor(m => m.nombre)
+
+    <br />
+    @Html.LabelFor(m => m.apellido)
+    @Html.TextBoxFor(m => m.apellido)
+    @Html.ValidationMessageFor(m => m.apellido)
+    <br />
+    @Html.LabelFor(m => m.edad)
+    @Html.DropDownListFor(m => m.edad, lstValores)
+    @Html.ValidationMessageFor(m => m.edad, "", new { @class = "text-danger" })
+
+    <br />
+    @Html.LabelFor(m => m.telefono)
+    @Html.TextBoxFor(m => m.telefono)
+    @Html.ValidationMessageFor(m => m.telefono, "", new { @class = "text-danger" })
+    <br />
+    @Html.LabelFor(m => m.mail, "Email")
+    @Html.TextBoxFor(m => m.mail)
+    @Html.ValidationMessageFor(m => m.mail, "", new { @class = "text-danger" })
+
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.genero)
+        @Html.DropDownListFor(m => m.genero,
+        new List<SelectListItem>{
+        new SelectListItem {Text = "Masculino", Value = "M"},
+        new SelectListItem{Text="Femenino", Value="F"}},
+        new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.genero, "", new { @class = "text-danger" })
+    </div>
+
+
+    <br />
+    <div>
+        @Html.LabelFor(m => m.estado, "Estado Civil") <br />
+        Casado/a
+        @Html.RadioButtonFor(m => m.estado, "Casado") <br />
+
+        Soltero/a
+        @Html.RadioButtonFor(m => m.estado, "Soltero") <br />
+
+        Viudo/a
+        @Html.RadioButtonFor(m => m.estado, "Viudo") <br />
+
+        Union Libre
+        @Html.RadioButtonFor(m => m.estado, "Union Libre")
+        @Html.ValidationMessageFor(m => m.estado, "", new { @class = "text-danger" })
+
+    </div>
+    <br />
+
+
+
+    <br />
+
+    <input type="submit" value="Aceptar" />
+}
+
+

@@ -1,0 +1,75 @@
+﻿@model PruebaHelp.Models.Datos
+@using PruebaHelp.Models
+@{
+    ViewBag.Title = "Impresion";
+}
+
+<h2>Impresion</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+               Cedula
+            </th>
+            <th>
+                Nombre
+            </th>
+
+            <th>
+                Apellido
+            </th>
+
+            <th>
+                Edad
+            </th>
+
+            <th>
+                Telefono
+            </th>
+
+            <th>
+                Email
+            </th>
+
+            <th>
+                Genero
+            </th>
+
+            <th>
+                Estado Civil
+            </th>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.nombre)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.edad)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.mail)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.genero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.estado)
+            </td>
+
+        </tr>
+
+</div>
+
