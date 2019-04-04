@@ -62,11 +62,6 @@ namespace PruebaHelp.Controllers
 			return View();
 		}
 
-		public ActionResult Contat()
-		{
-			ViewBag.Message = "Your contact page.";
 
-			return View();
-		}
 	}
 }
